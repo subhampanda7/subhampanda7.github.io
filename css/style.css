@@ -1276,13 +1276,13 @@ footer .credits a {
   grid-template-columns: repeat(5,1fr);
   grid-template-rows: auto;
   column-gap: 50px;
-  row-gap: 90px;
+  row-gap: 80px;
   margin: auto; 
 }
 
 .tech-stack {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   display: block;
   margin: auto;
 }
