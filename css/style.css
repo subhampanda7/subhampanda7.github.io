@@ -1373,3 +1373,66 @@ footer .credits a {
   color: white;
   font-weight: bolder;
 }
+
+
+
+/* My skill work start */
+#main_skill{
+  width: 75%;
+  /* border: 1px solid red; */
+  height: auto;
+  margin: auto;
+}
+#main_skill > h5{
+  text-align: center;
+  /* text-decoration: underline; */
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+.sub_skill{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 40px;
+}
+.sub_skill > div{
+  /* border: 2px solid blue; */
+  height: auto;
+}
+
+.sub_skill > div > div{
+  /* border: 2px solid rgb(0, 255, 76); */
+  height: auto;
+  text-align: center;
+}
+#main_skill img{
+  width: 45%;
+}
+
+@media screen and (min-width:650px) and (max-width:1024px) {
+  #main_skill{
+      width: 90%;
+  }
+  .sub_skill{
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 10px 40px;
+  }
+  #main_skill > h5{
+      margin-bottom: 10px;
+  }
+}
+@media screen and (min-width:100px) and (max-width:649px) {
+  #main_skill{
+      width: 90%;
+  }
+  .sub_skill{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 10px 40px;
+  }
+  #main_skill > h5{
+      margin-bottom: 10px;
+  }
+}
+
+/* My skill work end */
