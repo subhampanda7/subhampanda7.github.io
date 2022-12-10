@@ -15,7 +15,7 @@ I am an aspiring software developer with knowledge of the java backend. I am pro
 
 ![GitHub Streak](https://streak-stats.demolab.com/?user=subhampanda7&theme=tokyonight)
 ## 🛠 Skills and Tools
-![My Skills](https://skillicons.dev/icons?i=java,aws,html,css,bootstrap,js,git,github,vscode)
+![My Skills](https://skillicons.dev/icons?i=java,spring,hibernate,mysql,html,css,bootstrap,js,idea,vscode,aws,netlify,git,github)
 
 
 ## 🔗 Connect with me:
