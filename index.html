@@ -51,7 +51,7 @@
     <!--/ Nav Star /-->
     <nav
       class="navbar navbar-b navbar-trans navbar-expand-md fixed-top"
-      id="mainNav"
+      id="nav-menu"
     >
       <div class="container">
         <a class="navbar-brand js-scroll" href="#page-top">SP</a>
@@ -74,23 +74,23 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link js-scroll active" href="#home">Home</a>
+              <a class="nav-link js-scroll active" id="home" href="#home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll" href="#about">About</a>
+              <a class="nav-link js-scroll" id="about" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll" href="#blog">Project</a>
+              <a class="nav-link js-scroll" id="projects" href="#blog">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll" href="#skills">Skill</a>
+              <a class="nav-link js-scroll" id="skills" href="#skills">Skill</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll" href="#work">Tech</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link js-scroll" href="#contact">Contact</a>
+              <a class="nav-link js-scroll" id="contact" href="#contact">Contact</a>
             </li>
             <li class="nav-item">
               <a
@@ -158,6 +158,7 @@
                         <img
                           src="./img/Passport Blur.png"
                           class="img-fluid rounded b-shadow-a"
+                          class="home-img"
                           alt=""
                         />
                       </div>
@@ -165,7 +166,7 @@
                     <div class="col-sm-7 col-md-7 mt-5">
                       <div class="about-info">
                         <p>
-                          <span class="title-s">Name: </span>
+                          <span class="title-s"  id="user-detail-name">Name: </span>
                           <span>Subham Panda</span>
                         </p>
                         <p>
@@ -190,7 +191,7 @@
                     <div class="title-box-2">
                       <h5 class="title-left">About me</h5>
                     </div>
-                    <p class="lead">
+                    <p class="lead"  id="user-detail-intro">
                       I am an aspiring software developer with knowledge of the
                       java backend. I am proficient in Java, SpringBoot,
                       Hibernate, SQL, Data Structure and Algorithms, HTML, CSS,
