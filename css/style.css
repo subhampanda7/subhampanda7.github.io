@@ -1436,3 +1436,26 @@ footer .credits a {
 }
 
 /* My skill work end */
+
+/* Git-stats start */
+
+#gitstats {
+  height: auto;
+  width: 90vw;
+  display: grid;
+  margin: auto;
+  margin-top: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  /* border: 2px solid red; */
+}
+
+#gitstats > div {
+  /* border: 2px solid blue; */
+}
+
+#gitstats img {
+  width: 100%;
+}
+
+/* Git-stats end */
