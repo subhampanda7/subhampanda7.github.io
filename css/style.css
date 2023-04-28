@@ -1356,7 +1356,7 @@ footer .credits a {
   font-weight: bolder;
 }
 
-#resume_btn {
+.resume_btn {
   padding-left: 10px;
   padding-right: 10px;
   font-size: 20px;
@@ -1366,7 +1366,7 @@ footer .credits a {
   border-radius: 5px;
 }
 .resume_btn:hover {
-  background-color: #0077ff;
+  background-color: #0b131c;
 }
 
 #resume_btn:hover{
