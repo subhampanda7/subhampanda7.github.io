@@ -1357,19 +1357,19 @@ footer .credits a {
 }
 
 .resume_btn {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
   font-size: 20px;
 }
 .resume_btn {
-  padding: 5px;
+  padding: 1px;
   border-radius: 5px;
 }
 .resume_btn:hover {
   background-color: #0b131c;
 }
 
-#resume_btn:hover{
+.resume_btn:hover{
   color: white;
   font-weight: bolder;
 }
