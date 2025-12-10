@@ -1,264 +1,481 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
-    <meta charset="utf-8" />
-    <title>Subham Panda | Portfolio</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="keywords" />
-    <meta content="" name="description" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Subham Panda - Software Engineer specializing in Java, Spring Boot, Microservices, and scalable backend systems"
+    />
+    <meta
+      name="keywords"
+      content="Software Engineer, Java Developer, Spring Boot, Microservices, Backend Developer"
+    />
+    <meta name="author" content="Subham Panda" />
 
-    <style>
-      body {
-        overflow-x: hidden;
-      }
-    </style>
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Subham Panda | Software Engineer" />
+    <meta
+      property="og:description"
+      content="Software Engineer specializing in building scalable backend systems and microservices"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="profile.jpeg" />
+
+    <title>Subham Panda | Software Engineer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
 
-    <!-- github cal  -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
-    />
-
-    <!-- Favicons -->
-    <link href="img/s-letter-logo-3FDB009CF3-seeklogo.com.png" rel="icon" />
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
-
-    <!-- Bootstrap CSS File -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Libraries CSS Files -->
-    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-
-    <!-- Main Stylesheet File -->
-    <link href="css/style.css" rel="stylesheet" />
-
-    <!-- Google icons  -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css" />
   </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-text">SP</span>
+        </a>
 
-  <body id="page-top">
-    <!--/ Nav Star /-->
-    <nav
-      class="navbar navbar-b navbar-trans navbar-expand-md fixed-top"
-      id="nav-menu"
-    >
-      <div class="container">
-        <a class="navbar-brand js-scroll" href="#page-top">SP</a>
         <button
-          class="navbar-toggler collapsed"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarDefault"
-          aria-controls="navbarDefault"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          class="mobile-menu-btn"
+          id="mobile-menu-btn"
+          aria-label="Toggle menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span class="hamburger"></span>
         </button>
 
-        <div
-          class="navbar-collapse collapse justify-content-end"
-          id="navbarDefault"
-        >
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a
-                class="nav-link js-scroll active nav-link home"
-                id="home"
-                href="#home"
-                >Home</a
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item">
+            <a href="#experience" class="nav-link">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a href="#skills" class="nav-link">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a href="#education" class="nav-link">Education</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <button
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Toggle dark mode"
+            >
+              <svg
+                class="sun-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link js-scroll about section nav-link about"
-                id="about"
-                href="#abouts"
-                >About</a
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg
+                class="moon-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link js-scroll nav-link projects"
-                id="projects"
-                href="#blog"
-                >Project</a
-              >
-            </li>
-            <!-- <li class="nav-item">
-              <a
-                class="nav-link js-scroll"
-                id="skills"
-                href="#statistics"
-                >Skill</a
-              >
-            </li> -->
-            <li class="nav-item">
-              <a class="nav-link js-scroll nav-link skills" href="#skills"
-                >Skills</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a
-                class="nav-link js-scroll nav-link contact"
-                id="contact"
-                href="#contacts"
-                >Contact</a
-              >
-            </li>
-
-            <li class="nav-item" id="resume-button-1">
-              <a
-                class="nav-link nav-link resume"
-                id="resume-link-1"
-                href="./Subham-Panda-Resume.pdf"
-                download
-                >Resume</a>
-            </li>
-
-            <!-- <li class="nav-item">
-              <a
-                id="resume-button-1"
-                class="nav-link nav-link resume"
-                href="./Subham-Panda-Resume.pdf"
-                target="_blank"
-                download
-                onclick="window.open('https://drive.google.com/file/d/1GJxme9LAhcQP77fDWyXk0ojs2D_IH985/view?usp=share_link');"
-                >Resume</a
-              >
-            </li> -->
-          </ul>
-        </div>
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+              </svg>
+            </button>
+          </li>
+        </ul>
       </div>
     </nav>
-    <!--/ Nav End /-->
 
-    <!--/ Intro Skew Star /-->
-    <div
-      id="home"
-      class="intro route bg-image"
-      style="
-        background-image: url(img/all_the_little_details-wallpaper-3840x2160.jpg);
-      "
-    >
-      <div class="overlay-itro"></div>
-      <div class="intro-content display-table">
-        <div class="table-cell">
-          <div class="container">
-            <p class="display-5 color-d">Hello, I am 👋</p>
-            <!-- <h1 class="intro-subtitle">👋</h1> -->
-            <h1 class="intro-title mb-4">Subham Panda</h1>
-            <p class="display-6 color-d">I am into</p>
-            <p class="intro-subtitle">
-              <span class="text-slider-items"
-                >Web Development,Java Backend Development</span
-              ><strong class="text-slider"></strong>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="hero-gradient"></div>
+        <div class="hero-particles"></div>
+      </div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <p class="hero-greeting animate-fade-up">Hello, I'm</p>
+          <h1 class="hero-name animate-fade-up delay-1">Subham Panda</h1>
+          <h2 class="hero-title animate-fade-up delay-2">Software Engineer</h2>
+          <p class="hero-description animate-fade-up delay-3">
+            Building scalable backend systems and enterprise-grade applications.
+            Specialized in Java, Spring Boot, Microservices, and distributed
+            systems.
+          </p>
+          <div class="hero-cta animate-fade-up delay-4">
+            <a
+              href="Subham_Panda_Resume(2yr_7m).pdf"
+              class="btn btn-primary"
+              target="_blank"
+            >
+              <span>View Resume</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Contact Me</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+          </div>
+          <div class="hero-social animate-fade-up delay-5">
+            <a
+              href="https://www.linkedin.com/in/subhampanda7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              class="social-link"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+            </a>
+            <a
+              href="mailto:iamsubhampanda7@gmail.com"
+              aria-label="Email"
+              class="social-link"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <a
+              href="https://api.whatsapp.com/send?phone=7377248816&text=Hii"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              class="social-link"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.52 3.48A11.86 11.86 0 0 0 12 0a12 12 0 0 0-10.4 17.93L0 24l6.23-1.61A12 12 0 0 0 12 24h.01a12 12 0 0 0 12-12 11.86 11.86 0 0 0-3.49-8.52Zm-8.51 18h-.01a9.7 9.7 0 0 1-4.95-1.36l-.35-.21-3.7.95 1-3.61-.23-.37A9.72 9.72 0 0 1 2.3 12 9.71 9.71 0 0 1 12 2.31a9.6 9.6 0 0 1 6.87 2.84A9.62 9.62 0 0 1 21.69 12a9.71 9.71 0 0 1-9.68 9.48Zm5.31-7.29c-.29-.15-1.73-.85-2-1a1.15 1.15 0 0 0-1 .08c-.27.14-.9 1-.9 1s-.33.46-.82.46-.78-.09-1.46-.56a6.19 6.19 0 0 1-1.82-2.26c-.45-.78-.45-1.47-.31-1.62s.27-.32.4-.46a1.47 1.47 0 0 0 .22-.37.5.5 0 0 0 0-.49c-.15-.29-1-2.42-1.36-3.32s-.72-.77-1-.78h-.83a1.6 1.6 0 0 0-1.15.54 4.84 4.84 0 0 0-1.51 3.61 5.38 5.38 0 0 0 1.09 3.23 11.89 11.89 0 0 0 4.62 3.92 14.9 14.9 0 0 0 2.22.82 5.33 5.33 0 0 0 2.39.15 3.9 3.9 0 0 0 2.57-1.77 3.14 3.14 0 0 0 .23-1.77c-.07-.13-.26-.2-.55-.35Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://github.com/subhampanda7"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              class="social-link"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-image animate-fade-left delay-2">
+          <div class="image-wrapper">
+            <img src="profile.jpeg" alt="Subham Panda" loading="eager" />
+            <div class="image-ring"></div>
+            <div class="image-ring ring-2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator animate-fade-up delay-5">
+        <span>Scroll Down</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+      <div class="container">
+        <h2 class="section-title reveal">
+          <span class="title-number">01.</span>
+          About Me
+        </h2>
+        <div class="about-content reveal">
+          <div class="about-text">
+            <p>
+              I'm a passionate <strong>Software Engineer</strong> with expertise
+              in building scalable, enterprise-grade applications. Currently
+              working at <strong>Paytm</strong>, where I architect and deliver
+              high-performance systems processing millions of events monthly.
             </p>
-            <!-- <button class="resume_btn" id="resume-button-2">
-              <a
-                id="resume-link-2"
-                class="nav-link resume"
-                href="./Subham-Panda-Resume.pdf"
-                target="_blank"
-                download
-                onclick="window.open('https://drive.google.com/file/d/1GJxme9LAhcQP77fDWyXk0ojs2D_IH985/view?usp=share_link');"
-              >
-                Resume
-              </a>
-            </button> -->
-
-            <button class="resume_btn" id="resume-button-2">
-              <a
-                id="resume-link-2"
-                class="nav-link resume"
-                href="./Subham-Panda-Resume.pdf"
-                download
-                
-              >
-                Resume 
-              </a>
-            </button>
-
-
-            <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+            <p>
+              My journey in tech started with a B.Tech degree and was further
+              strengthened through intensive training at
+              <strong>Masai School</strong>. I specialize in designing
+              microservices architectures, implementing event-driven systems,
+              and optimizing application performance.
+            </p>
+            <p>
+              I thrive on solving complex problems and building systems that
+              make a real impact. Whether it's reducing API response times by
+              65% or architecting fault-tolerant workflows, I'm always eager to
+              push the boundaries of what's possible.
+            </p>
+          </div>
+          <div class="about-highlights">
+            <div class="highlight-card">
+              <span class="highlight-number">1M+</span>
+              <span class="highlight-label">Events Processed Monthly</span>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-number">99.9%</span>
+              <span class="highlight-label">System Uptime</span>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-number">80%</span>
+              <span class="highlight-label">Efficiency Improvement</span>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-number">3+</span>
+              <span class="highlight-label">Years Experience</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!--/ Intro Skew End /-->
+    </section>
 
-    <section id="abouts" class="about-mf sect-pt4 route">
+    <!-- Experience Section -->
+    <section class="experience section" id="experience">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="box-shadow-full">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="row">
-                    <div class="col-sm-5 col-md-5">
-                      <div class="about-img mt-3">
-                        <img
-                          src="./img/Passport Blur.png"
-                          class="img-fluid rounded b-shadow-a home-img"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <div class="col-sm-7 col-md-7 mt-5">
-                      <div class="about-info">
-                        <p>
-                          <span class="title-s">Name: </span>
-                          <span id="user-detail-name">Subham Panda</span>
-                        </p>
-                        <p>
-                          <span class="title-s">Profile: </span>
-                          <span>Java Backend Developer</span>
-                        </p>
-                        <p>
-                          <span class="title-s">Email: </span>
-                          <span id="contact-email"
-                            >iamsubhampanda7@gmail.com</span
-                          >
-                        </p>
-                        <p>
-                          <span class="title-s">Phone: </span>
-                          <span id="contact-phone">+91 7377248816</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+        <h2 class="section-title reveal">
+          <span class="title-number">02.</span>
+          Work Experience
+        </h2>
+        <div class="timeline">
+          <!-- Paytm -->
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="company-info">
+                  <h3 class="company-name">Paytm</h3>
+                  <span class="job-title">Software Engineer</span>
                 </div>
-                <div class="col-md-6" id="user-detail-intro">
+                <span class="timeline-date">Feb 2025 - Present</span>
+              </div>
+              <ul class="timeline-achievements">
+                <li>
+                  <span class="achievement-icon">▹</span>
+                  <span
+                    >Architected and delivered an enterprise marketing
+                    automation platform processing
+                    <strong>1M+ customer lifecycle events monthly</strong>,
+                    reducing manual campaign setup time by 80% and enabling
+                    real-time personalized communications across 3 channels
+                    (Email, SMS, WhatsApp).</span
+                  >
+                </li>
+                <li>
+                  <span class="achievement-icon">▹</span>
+                  <span
+                    >Built a fault-tolerant workflow orchestration engine using
+                    <strong>Temporal.io and Kafka</strong>, achieving 99.9%
+                    uptime while executing 10K+ daily workflows with automatic
+                    retry mechanisms and distributed tracing.</span
+                  >
+                </li>
+                <li>
+                  <span class="achievement-icon">▹</span>
+                  <span
+                    >Designed scalable microservices architecture leveraging
+                    <strong>Spring Boot</strong>, implementing Strategy and
+                    Observer design patterns for multi-channel communication
+                    handlers, resulting in 40% reduction in code
+                    duplication.</span
+                  >
+                </li>
+                <li>
+                  <span class="achievement-icon">▹</span>
+                  <span
+                    >Optimized system performance by
+                    <strong>30%</strong> through Redis distributed caching and
+                    event routing improvements, reducing API response times from
+                    800ms to 280ms while handling 10K+ requests/minute during
+                    peak loads.</span
+                  >
+                </li>
+                <li>
+                  <span class="achievement-icon">▹</span>
+                  <span
+                    >Developed event-driven REST APIs with
+                    <strong>PostgreSQL</strong> for data persistence and Kafka
+                    for asynchronous processing, implementing CQRS pattern for
+                    read/write separation.</span
+                  >
+                </li>
+                <li>
+                  <span class="achievement-icon">▹</span>
+                  <span
+                    >Engineered a media management system with
+                    <strong>AWS S3</strong> integration supporting multi-format
+                    uploads, implementing Factory pattern for file processors
+                    and achieving 99.99% file retrieval success rate with CDN
+                    integration.</span
+                  >
+                </li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Kafka</span>
+                <span class="tech-tag">Temporal.io</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">AWS S3</span>
+                <span class="tech-tag">Microservices</span>
+              </div>
+            </div>
+          </div>
 
-                  <div class="about-me pt-5 pt-md-0">
-                    <div class="title-box-2">
-                      <h5 class="title-left">About me</h5>
-                    </div>
-                    <p class="lead" id="user-detail-intro">
-                      I am an aspiring software developer with knowledge of the
-                      java backend. I am proficient in Java, SpringBoot,
-                      Hibernate, SQL, Data Structure and Algorithms, HTML, CSS,
-                      and JavaScript. Always keen to learn new software and
-                      technologies. Capability to write quality code and work in
-                      teams by providing valuable input.
-                    </p>
-                  </div>
+          <!-- QuickTouch Technologies -->
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="company-info">
+                  <h3 class="company-name">QuickTouch Technologies Limited</h3>
+                  <span class="job-title">Software Engineer</span>
                 </div>
-
+                <span class="timeline-date">May 2023 - Feb 2025</span>
+              </div>
+              <ul class="timeline-achievements">
+                <li>
+                  <span class="achievement-icon">▹</span>
+                  <span
+                    >Contributed to the development of
+                    <strong>QuickCampus</strong>, a cloud-based School ERP
+                    platform used by <strong>3,500+ schools</strong>,
+                    collaborating closely with cross-functional teams.</span
+                  >
+                </li>
+                <li>
+                  <span class="achievement-icon">▹</span>
+                  <span
+                    >Designed and implemented a recruitment portal that allowed
+                    administrators to create job listings with category-based
+                    fee concessions, simplifying the hiring workflow.</span
+                  >
+                </li>
+                <li>
+                  <span class="achievement-icon">▹</span>
+                  <span
+                    >Integrated <strong>WhatsApp</strong> across key modules,
+                    enabling instant alerts, seamless information sharing, and
+                    improved user connectivity and engagement.</span
+                  >
+                </li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">WhatsApp API</span>
               </div>
             </div>
           </div>
@@ -266,713 +483,680 @@
       </div>
     </section>
 
-    <!--/ Section Blog Star /-->
-    <section id="blog" class="blog-mf sect-pt4 route">
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="title-box text-center">
-              <h3 class="title-a">Projects</h3>
-              <p class="subtitle-a">
-                A small showcase for Feature Projects which I was a part of
+        <h2 class="section-title reveal">
+          <span class="title-number">03.</span>
+          Featured Projects
+        </h2>
+
+        <!-- Featured Project -->
+        <div class="featured-project reveal">
+          <div class="featured-project-image">
+            <div class="project-visual">
+              <div class="visual-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="80"
+                  height="80"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <div class="visual-bg"></div>
+            </div>
+          </div>
+          <div class="featured-project-content">
+            <span class="project-label">Featured Project</span>
+            <h3 class="project-title">
+              Quick Campus - Unified EdTech Marketplace
+            </h3>
+            <div class="project-description">
+              <p>
+                An all-in-one platform that integrates academic, administrative,
+                and communication workflows for modern educational institutions.
+                This comprehensive EdTech marketplace offers tools and solutions
+                tailored to diverse school needs and goals.
               </p>
-              <div class="line-mf"></div>
+              <ul class="project-features">
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Unified platform serving 3,500+ schools
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Connected ecosystem for students, parents, schools, and
+                  vendors
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Streamlined academic and administrative workflows
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Real-time communication and resource sharing
+                </li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span>Java</span>
+              <span>Spring Boot</span>
+              <span>REST APIs</span>
+              <span>MySQL</span>
+              <span>Microservices</span>
+              <span>Cloud Infrastructure</span>
             </div>
           </div>
         </div>
-        <div class="row">
-          <!-- ---- 1 ----- -->
 
-          <div class="col-md-6 mb-3 project-card">
-            <div class="card card-blog">
-              <div class="card-img">
-                <a
-                  href="https://friendly-conkies-32888a.netlify.app/"
-                  target="_blank"
-                  ><img
-                    src="./img/lately_screenshot.png"
-                    alt=""
-                    class="img-fluid"
-                /></a>
+        <!-- Other Projects Grid -->
+        <div class="projects-grid">
+          <div class="project-card reveal">
+            <div class="project-card-header">
+              <div class="project-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  ></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
               </div>
-              <div class="card-body">
-                <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category fs-1 project-title">Lately.ai Clone</h6>
-                  </div>
-                </div>
-                <h3 class="card-title">
-                  <a
-                    href="https://friendly-conkies-32888a.netlify.app/"
-                    target="_blank"
-                    >See more about Lately.ai Clone</a
-                  >
-                </h3>
-                <p class="card-description project-description">
-                  Cloned Lately’s AI learns which words will get you the most
-                  engagement and repurposes video, audio, and text into dozens
-                  of social posts that contain those words.
-                </p>
-                <p class="tech_stack_project project-tech-stack">
-                  TECH STACKS : HTML | CSS | JAVASCRIPT
-                </p>
-              </div>
-              <div class="card-footer">
-                <div class="post-author project-github-link">
-                  <a
-                    href="https://github.com/subhampanda7/balmy-health-8092"
-                    target="_blank"
-                  >
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                      alt=""
-                      class="avatar rounded-circle"
-                    />
-                    <span class="author">GitHub</span>
-                  </a>
-                </div>
-                <div class="post-date project-deployed-link">
-                  <a
-                    href="https://friendly-conkies-32888a.netlify.app/"
-                    target="_blank"
-                  >
-                    <img
-                      src="https://img.icons8.com/ios/50/000000/source-code.png"
-                      alt=""
-                      class="avatar rounded-circle"
-                    />
-
-                    <span class="author">Live</span>
-                  </a>
-                </div>
-              </div>
+            </div>
+            <h4 class="project-card-title">Marketing Automation Platform</h4>
+            <p class="project-card-description">
+              Enterprise-grade marketing automation system processing 1M+
+              lifecycle events monthly with real-time personalized
+              communications across multiple channels.
+            </p>
+            <div class="project-card-tech">
+              <span>Temporal.io</span>
+              <span>Kafka</span>
+              <span>Spring Boot</span>
             </div>
           </div>
 
-          <!-- ----- 2 ---- -->
-
-          <div class="col-md-6 mb-3 project-card">
-            <div class="card card-blog">
-              <div class="card-img">
-                <a
-                  href="https://splendid-conkies-1f200f.netlify.app/"
-                  target="_blank"
-                  ><img
-                    src="./img/myhour_screenshots.png"
-                    alt=""
-                    class="img-fluid"
-                /></a>
+          <div class="project-card reveal">
+            <div class="project-card-header">
+              <div class="project-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
               </div>
-              <div class="card-body">
-                <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category project-title">My Hours.com Clone</h6>
-                  </div>
-                </div>
-                <h3 class="card-title">
-                  <a
-                    href="https://splendid-conkies-1f200f.netlify.app/"
-                    target="_blank"
-                    >See more about Myhour.com Clone</a
-                  >
-                </h3>
-                <p class="card-description project-description">
-                  Cloned My Hours, where you can track all your work. Add a
-                  detailed description to your time logs and expenses. We know
-                  time tracking is a hassle, so it is designed to track your
-                  work super fast.
-                </p>
-                <p class="tech_stack_project project-tech-stack">
-                  TECH STACKS : HTML | CSS | JAVASCRIPT
-                </p>
-              </div>
-              <div class="card-footer">
-                <div class="post-author project-github-link">
-                  <a
-                    href="https://github.com/ankitatra/decorous-pan-7664"
-                    target="_blank"
-                  >
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                      alt=""
-                      class="avatar rounded-circle"
-                    />
-
-                    <span class="author">GitHub</span>
-                  </a>
-                </div>
-                <div class="post-date project-deployed-link">
-                  <a
-                    href="https://splendid-conkies-1f200f.netlify.app/"
-                    target="_blank"
-                  >
-                    <img
-                      src="https://img.icons8.com/ios/50/000000/source-code.png"
-                      alt=""
-                      class="avatar rounded-circle"
-                    />
-
-                    <span class="author">Live</span>
-                  </a>
-                </div>
-              </div>
+            </div>
+            <h4 class="project-card-title">Workflow Orchestration Engine</h4>
+            <p class="project-card-description">
+              Fault-tolerant workflow system achieving 99.9% uptime, executing
+              10K+ daily workflows with automatic retry mechanisms and
+              distributed tracing.
+            </p>
+            <div class="project-card-tech">
+              <span>Temporal.io</span>
+              <span>Java</span>
+              <span>Distributed Systems</span>
             </div>
           </div>
 
-          <!-- -----TOP 2 ABOVE---- -->
-
-          <!-- -----3---- -->
-
-          <div class="col-md-6 mb-3 project-card">
-            <div class="card card-blog">
-              <div class="card-img">
-                <a
-                  href="https://github.com/subhampanda7/lucid-sand-4612"
-                  target="_blank"
-                  ><img
-                    src="./img/louis-management-system.png"
-                    alt=""
-                    class="img-fluid"
-                /></a>
-              </div>
-              <div class="card-body">
-                <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category project-title">
-                      Automated Auction System
-                    </h6>
-                  </div>
-                </div>
-                <h3 class="card-title">
-                  <a
-                    href="https://github.com/subhampanda7/lucid-sand-4612"
-                    target="_blank"
-                    >See more about Automated auction system</a
-                  >
-                </h3>
-                <p class="card-description project-description">
-                  Louis Management System. Get Your Data In Seconds. The main
-                  objective of Louis management system is usually to handle the
-                  process of buying and selling goods data with all details.
-                </p>
-                <p class="tech_stack_project project-tech-stack">
-                  TECH STACKS : Core JAVA | MySQL | JDBC
-                </p>
-              </div>
-              <div class="card-footer">
-                <div class="post-author project-github-link">
-                  <a
-                    href="https://github.com/subhampanda7/lucid-sand-4612"
-                    target="_blank"
-                  >
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                      alt=""
-                      class="avatar rounded-circle"
-                    />
-
-                    <span class="author">GitHub</span>
-                  </a>
-                </div>
-                <div class="post-date project-deployed-link">
-                  <a
-                    href="https://drive.google.com/file/d/1MbUi3by4zyUhku7XIpOK00gMblILA3JG/view?usp=share_link"
-                    target="_blank"
-                  >
-                    <img
-                      src="https://img.icons8.com/ios/50/null/laptop-play-video--v2.png"
-                      alt=""
-                      class="avatar rounded-circle"
-                    />
-
-                    <span class="author">Live</span>
-                  </a>
-                </div>
+          <div class="project-card reveal">
+            <div class="project-card-header">
+              <div class="project-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
               </div>
             </div>
-          </div>
-
-          <!-- -----4---- -->
-          <div class="col-md-6 mb-3 project-card">
-            <div class="card card-blog">
-              <div class="card-img">
-                <a
-                  href="https://github.com/subhampanda7/lively-square-4699"
-                  target="_blank"
-                  ><img src="./img/Flash _food1.png" alt="" class="img-fluid"
-                /></a>
-              </div>
-              <div class="card-body">
-                <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category fs-1 project-title">Flash food</h6>
-                  </div>
-                </div>
-                <h3 class="card-title">
-                  <a
-                    href="https://github.com/subhampanda7/lively-square-4699"
-                    target="_blank"
-                    >See more about Flash food</a
-                  >
-                </h3>
-                <p class="card-description project-description">
-                  Flash food is an online food delivery system where both
-                  customers and restaurants can interact with the application
-                  interface. The restaurant and customer can perform various
-                  tasks and CRUD operations.
-                </p>
-                <p class="tech_stack_project project-tech-stack">
-                  TECH STACKS : Java | Hibernate | Spring Boot
-                </p>
-              </div>
-              <div class="card-footer">
-                <div class="post-author project-github-link">
-                  <a
-                    href="https://github.com/subhampanda7/lively-square-4699"
-                    target="_blank"
-                  >
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                      alt=""
-                      class="avatar rounded-circle"
-                    />
-                    <span class="author">GitHub</span>
-                  </a>
-                </div>
-                <div class="post-date project-deployed-link">
-                  <a
-                    href="https://drive.google.com/file/d/110BV95FwSyNZYqrDkem1wa3O_dbz1nRY/view?usp=share_link"
-                    target="_blank"
-                  >
-                    <img
-                      src="https://img.icons8.com/ios/50/null/laptop-play-video--v2.png"
-                      alt=""
-                      class="avatar rounded-circle"
-                    />
-
-                    <span class="author">Live</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a href="blog-single.html"><img src="img/post-3.jpg" alt="" class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Web Design</h6>
-                </div>
-              </div>
-              <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-              <p class="card-description">
-                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                a pellentesque nec,
-                egestas non nisi.
-              </p>
-            </div>
-            <div class="card-footer">
-              <div class="post-author">
-                <a href="#">
-                  <img src="img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                  <span class="author">Morgan Freeman</span>
-                </a>
-              </div>
-              <div class="post-date">
-                <span class="ion-ios-clock-outline"></span> 10 min
-              </div>
-            </div>
-          </div>
-        </div> -->
-        </div>
-      </div>
-    </section>
-    <!--/ Section Blog End /-->
-
-    <!--/ Section Services Star /-->
-    <section id="statistics" class="services-mf route">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 class="title-a">STATISTICS</h3>
-            <p class="subtitle-a">Skills like coding, DSA & soft skills</p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="section-counter paralax-mf bg-image"
-        style="
-          background-image: url(img/minimalist_art_design_vi-wallpaper-2560x1440.jpg);
-        "
-      >
-        <div class="overlay-mf"></div>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-3 col-lg-3">
-              <div class="counter-box">
-                <div class="counter-ico">
-                  <span class="ico-circle"
-                    ><i class="ion-checkmark-round"></i
-                  ></span>
-                </div>
-                <div class="counter-num">
-                  <p class="counter">1200</p>
-                  <span class="counter-text">+ HOURS OF CODING</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div class="counter-box pt-4 pt-md-0">
-                <div class="counter-ico">
-                  <span class="ico-circle"
-                    ><i class="ion-ios-calendar-outline"></i
-                  ></span>
-                </div>
-                <div class="counter-num">
-                  <p class="counter">300</p>
-                  <span class="counter-text">+ HOURS OF DSA</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div class="counter-box pt-4 pt-md-0">
-                <div class="counter-ico">
-                  <span class="ico-circle"><i class="ion-ios-people"></i></span>
-                </div>
-                <div class="counter-num">
-                  <p class="counter">100</p>
-                  <span class="counter-text">+ HOURS OF SOFTSKILLS</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div class="counter-box pt-4 pt-md-0">
-                <div class="counter-ico">
-                  <span class="ico-circle"><i class="ion-ribbon-a"></i></span>
-                </div>
-                <div class="counter-num">
-                  <p class="counter">450</p>
-                  <span class="counter-text">+ GIT COMMITS</span>
-                </div>
-              </div>
+            <h4 class="project-card-title">Recruitment Portal</h4>
+            <p class="project-card-description">
+              Comprehensive recruitment system with job listings, category-based
+              fee concessions, and application tracking to simplify hiring
+              workflows.
+            </p>
+            <div class="project-card-tech">
+              <span>Spring Boot</span>
+              <span>REST APIs</span>
+              <span>MySQL</span>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!--/ Section Services End /-->
 
-    <!-- GitHub calendar -->
-    <div id="git_cal" class="testimonials paralax-mf bg-image">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 class="title-a">DAYS I CODE</h3>
-            <p class="subtitle-a">GitHub commits and Statistics</p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="calendar react-activity-calendar">
-        <!-- Loading stuff -->
-        Loading the data just for you.
-      </div>
-    </div>
-
-    <!-- Git-stats start -->
-
-    <div id="gitstats">
-      <div>
-        <img
-          id="github-streak-stats"
-          src="https://github-readme-streak-stats.herokuapp.com?user=subhampanda7&theme=transparent"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          id="github-top-langs"
-          src="https://github-readme-stats.vercel.app/api/top-langs/?username=subhampanda7&layout=compact&hide=php"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          id="github-stats-card"
-          src="https://github-readme-stats.vercel.app/api?username=subhampanda7&show_icons=true&theme=transparent"
-          alt=""
-        />
-      </div>
-    </div>
-
-    <!-- Git-stats end -->
-
-    <!--/ Section Skill Work Start /-->
-    <section id="skills" class="portfolio-mf sect-pt4 route">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 class="title-a">Skills</h3>
-            <p class="subtitle-a">Learned Tech Stacks</p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Skill div start -->
-
-      <div id="main_skill">
-        <h5>Frontend Skills</h5>
-
-        <div class="sub_skill">
-          <div class="skills-card">
-            <div>
-              <img class="skills-card-img" src="./Skills_Logo/html.logo.png" />
-            </div>
-            <div><p class="skills-card-name">HTML</p></div>
-          </div>
-          <div class="skills-card">
-            <div>
-              <img class="skills-card-img" src="./Skills_Logo/css.logo.png" />
-            </div>
-            <div><p class="skills-card-name">CSS</p></div>
-          </div>
-          <div class="skills-card">
-            <div>
-              <img
-                class="skills-card-img"
-                src="./Skills_Logo/bootstrap.logo.png"
-              />
-            </div>
-            <div><p class="skills-card-name">Bootstrap</p></div>
-          </div>
-          <div class="skills-card">
-            <div>
-              <img
-                class="skills-card-img"
-                src="./Skills_Logo/javascript.logo.png"
-              />
-            </div>
-            <div><p class="skills-card-name">JavaScript</p></div>
-          </div>
-        </div>
-
-        <h5>Backend Skills</h5>
-
-        <div class="sub_skill">
-          <div class="skills-card">
-            <div>
-              <img class="skills-card-img" src="./Skills_Logo/java.logo.png" />
-            </div>
-            <div><p class="skills-card-name">JAVA</p></div>
-          </div>
-
-          <div class="skills-card">
-            <div>
-              <img
-                class="skills-card-img"
-                src="./Skills_Logo/spring.logo.png"
-              />
-            </div>
-            <div><p class="skills-card-name">Spring Boot</p></div>
-          </div>
-
-          <div class="skills-card">
-            <div>
-              <img class="skills-card-img" src="./Skills_Logo/mysql.logo.png" />
-            </div>
-            <div><p class="skills-card-name">MySQL</p></div>
-          </div>
-
-          <div class="skills-card">
-            <div>
-              <img
-                class="skills-card-img"
-                src="./Skills_Logo/hibernate2_logo.png"
-              />
-            </div>
-            <div><p class="skills-card-name">Hibernate</p></div>
-          </div>
-        </div>
-
-        <h5>Other Skills</h5>
-
-        <div class="sub_skill">
-          <div class="skills-card">
-            <div>
-              <img
-                class="skills-card-img"
-                src="./Skills_Logo/vs code.logo.png"
-              />
-            </div>
-            <div><p class="skills-card-name">VS Code</p></div>
-          </div>
-
-          <div class="skills-card">
-            <div>
-              <img
-                class="skills-card-img"
-                src="./Skills_Logo/intellij.logo.png"
-              />
-            </div>
-            <div><p class="skills-card-name">IntelliJ</p></div>
-          </div>
-
-          <div class="skills-card">
-            <div>
-              <img
-                class="skills-card-img"
-                src="./Skills_Logo/eclipse.logo.png"
-              />
-            </div>
-            <div><p class="skills-card-name">Eclipse</p></div>
-          </div>
-
-          <div class="skills-card">
-            <div>
-              <img class="skills-card-img" src="./Skills_Logo/git.logo.png" />
-            </div>
-            <div><p class="skills-card-name">Git</p></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Skill div end -->
-    </section>
-    <!--/ Tech Stack End /-->
-
-    <!--/ Section Contact-Footer Star /-->
-    <section
-      id="contacts"
-      class="paralax-mf footer-paralax bg-image sect-mt4 route"
-      style="
-        background-image: url(img/autumn_yellow_foliage_bike_ride_trees_nature-wallpaper-5120x2880.jpg);
-      "
-    >
-      <div class="overlay-mf"></div>
+    <!-- Skills Section -->
+    <section class="skills section" id="skills">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="contact-mf">
-              <div id="contact" class="box-shadow-full">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="title-box-2">
-                      <h5 class="title-left">Send Message</h5>
-                    </div>
-                    <div>
-                      <!-- <button id="mail_btn">
-                        <a href="mailto:suresh.20fk@gmail.com">Send Mail</a>
-                      </button> -->
-                      <p class="lead">Have querries ?</p>
-                      <p style="margin-bottom: 40px" class="lead">
-                        Feel free to reach out to me.
-                      </p>
-                      <a
-                        href="https://api.whatsapp.com/send?phone=7377248816&text=Hii"
-                      >
-                        <img
-                          src="https://img.icons8.com/color/96/000000/whatsapp--v1.png"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="title-box-2 pt-4 pt-md-0">
-                      <h5 class="title-left">Get in Touch</h5>
-                    </div>
-                    <div class="more-info">
-                      <!-- <p class="lead">Have querries ?</p>
-                      <p style="margin-bottom: 40px" class="lead">
-                        Feel free to reach out to me.
-                      </p> -->
-                      <ul class="list-ico">
-                        <li>
-                          <span class="ion-ios-location"></span> BHADRAK, ODISHA
-                        </li>
-                        <li>
-                          <span class="ion-ios-telephone"></span> +91 7377248816
-                        </li>
-                        <li>
-                          <span class="ion-email"></span>
-                          iamsubhampanda7@gmail.com
-                        </li>
-                      </ul>
-                    </div>
-                    <div style="margin-bottom: 20px" class="socials">
-                      <ul>
-                        <li id="contact-linkedin">
-                          <a
-                            href="https://www.linkedin.com/in/subhampanda7/"
-                            target="_blank"
-                            ><span class="ico-circle"
-                              ><i class="ion-social-linkedin"></i></span
-                          ></a>
-                        </li>
-                        <li id="contact-github">
-                          <a
-                            href="https://github.com/subhampanda7"
-                            target="_blank"
-                            ><span class="ico-circle"
-                              ><i class="ion-social-github"></i></span
-                          ></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <h2 class="section-title reveal">
+          <span class="title-number">04.</span>
+          Skills & Technologies
+        </h2>
+        <div class="skills-container reveal">
+          <div class="skill-category">
+            <h3 class="category-title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              Languages
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              Frameworks & Technologies
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Spring Boot</span>
+              <span class="skill-tag">Spring MVC</span>
+              <span class="skill-tag">Spring Security</span>
+              <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">Microservices</span>
+              <span class="skill-tag">Kafka</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+              Databases
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Redis</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                ></path>
+              </svg>
+              Tools & Platforms
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Git/GitHub</span>
+              <span class="skill-tag">Jenkins</span>
+              <span class="skill-tag">CI/CD</span>
+              <span class="skill-tag">Bitbucket</span>
+              <span class="skill-tag">Postman</span>
+              <span class="skill-tag">Grafana</span>
+              <span class="skill-tag">Vault</span>
+              <span class="skill-tag">IntelliJ</span>
+              <span class="skill-tag">Jira</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                ></path>
+              </svg>
+              Core Concepts
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Data Structures & Algorithms</span>
+              <span class="skill-tag">Object-Oriented Programming</span>
+              <span class="skill-tag">System Design</span>
+              <span class="skill-tag">Multithreading</span>
+              <span class="skill-tag">Concurrency</span>
             </div>
           </div>
         </div>
       </div>
-      <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="copyright-box">
-                <!-- <p class="copyright">
-                  &copy; Copyright <strong>Subham</strong>. All Rights Reserved
-                </p> -->
-                <div class="credits"></div>
-              </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education section" id="education">
+      <div class="container">
+        <h2 class="section-title reveal">
+          <span class="title-number">05.</span>
+          Education
+        </h2>
+        <div class="education-grid">
+          <div class="education-card reveal">
+            <div class="education-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div class="education-content">
+              <h3 class="education-degree">Bachelor of Technology (B.Tech)</h3>
+              <h4 class="education-school">Bhubaneswar Engineering College</h4>
+              <p class="education-location">Bhubaneswar, Odisha</p>
+              <span class="education-date">Aug 2019 - May 2022</span>
+            </div>
+          </div>
+
+          <div class="education-card reveal">
+            <div class="education-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <div class="education-content">
+              <h3 class="education-degree">Full Stack Web Development</h3>
+              <h4 class="education-school">Masai School</h4>
+              <p class="education-location">Bangalore, Karnataka</p>
+              <span class="education-date">May 2022 - Mar 2023</span>
             </div>
           </div>
         </div>
-      </footer>
+      </div>
     </section>
-    <!--/ Section Contact-footer End /-->
 
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-    <div id="preloader"></div>
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <h2 class="section-title reveal">
+          <span class="title-number">06.</span>
+          Get In Touch
+        </h2>
+        <div class="contact-content reveal">
+          <p class="contact-description">
+            I'm currently open to new opportunities and interesting projects.
+            Whether you have a question, want to discuss a potential
+            collaboration, or just want to say hi, feel free to reach out!
+          </p>
+          <div class="contact-cards">
+            <a href="mailto:iamsubhampanda7@gmail.com" class="contact-card">
+              <div class="contact-card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contact-card-info">
+                <span class="contact-card-label">Email</span>
+                <span class="contact-card-value"
+                  >iamsubhampanda7@gmail.com</span
+                >
+              </div>
+            </a>
 
-    <!-- JavaScript Libraries -->
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/jquery/jquery-migrate.min.js"></script>
-    <script src="lib/popper/popper.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/counterup/jquery.waypoints.min.js"></script>
-    <script src="lib/counterup/jquery.counterup.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-    <script src="lib/typed/typed.min.js"></script>
-    <!-- Contact Form JavaScript File -->
-    <script src="contactform/contactform.js"></script>
+            <a href="tel:+917377248816" class="contact-card">
+              <div class="contact-card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="contact-card-info">
+                <span class="contact-card-label">Phone</span>
+                <span class="contact-card-value">+91-7377248816</span>
+              </div>
+            </a>
 
-    <!-- Template Main Javascript File -->
-    <script src="js/main.js"></script>
+            <a
+              href="https://www.linkedin.com/in/subhampanda7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-card"
+            >
+              <div class="contact-card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </div>
+              <div class="contact-card-info">
+                <span class="contact-card-label">LinkedIn</span>
+                <span class="contact-card-value"
+                  >linkedin.com/in/subhampanda7</span
+                >
+              </div>
+            </a>
+
+            <div class="contact-card location-card">
+              <div class="contact-card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="contact-card-info">
+                <span class="contact-card-label">Location</span>
+                <span class="contact-card-value"
+                  >Noida, Uttar Pradesh, India</span
+                >
+              </div>
+            </div>
+          </div>
+          <a
+            href="mailto:iamsubhampanda7@gmail.com"
+            class="btn btn-primary btn-lg"
+          >
+            <span>Say Hello</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p class="footer-text">
+            Designed & Built by <strong>Subham Panda</strong>
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.linkedin.com/in/subhampanda7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://api.whatsapp.com/send?phone=7377248816&text=Hii"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.52 3.48A11.86 11.86 0 0 0 12 0a12 12 0 0 0-10.4 17.93L0 24l6.23-1.61A12 12 0 0 0 12 24h.01a12 12 0 0 0 12-12 11.86 11.86 0 0 0-3.49-8.52Zm-8.51 18h-.01a9.7 9.7 0 0 1-4.95-1.36l-.35-.21-3.7.95 1-3.61-.23-.37A9.72 9.72 0 0 1 2.3 12 9.71 9.71 0 0 1 12 2.31a9.6 9.6 0 0 1 6.87 2.84A9.62 9.62 0 0 1 21.69 12a9.71 9.71 0 0 1-9.68 9.48Zm5.31-7.29c-.29-.15-1.73-.85-2-1a1.15 1.15 0 0 0-1 .08c-.27.14-.9 1-.9 1s-.33.46-.82.46-.78-.09-1.46-.56a6.19 6.19 0 0 1-1.82-2.26c-.45-.78-.45-1.47-.31-1.62s.27-.32.4-.46a1.47 1.47 0 0 0 .22-.37.5.5 0 0 0 0-.49c-.15-.29-1-2.42-1.36-3.32s-.72-.77-1-.78h-.83a1.6 1.6 0 0 0-1.15.54 4.84 4.84 0 0 0-1.51 3.61 5.38 5.38 0 0 0 1.09 3.23 11.89 11.89 0 0 0 4.62 3.92 14.9 14.9 0 0 0 2.22.82 5.33 5.33 0 0 0 2.39.15 3.9 3.9 0 0 0 2.57-1.77 3.14 3.14 0 0 0 .23-1.77c-.07-.13-.26-.2-.55-.35Z"
+                />
+              </svg>
+            </a>
+            <a href="mailto:iamsubhampanda7@gmail.com" aria-label="Email">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <a
+              href="https://github.com/subhampanda7"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+          </div>
+          <p class="footer-copyright">
+            &copy; 2024 Subham Panda. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
   </body>
 </html>
-<script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
-<script>
-  GitHubCalendar(".calendar", "subhampanda7");
-  // or enable responsive functionality
-  GitHubCalendar(".calendar", "subhampanda7", { responsive: true });
-</script>
