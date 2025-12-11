@@ -298,12 +298,12 @@ function animateNumber(element, start, end, duration) {
     // Check if the original text has special characters
     const originalText = element.dataset.value || element.textContent;
 
-    if (originalText.includes("+")) {
-      element.textContent = currentValue + "+";
+    if (originalText.includes("M")) {
+      element.textContent = (currentValue / 10).toFixed(0) + "M+";
     } else if (originalText.includes("%")) {
       element.textContent = currentValue + "%";
-    } else if (originalText.includes("M")) {
-      element.textContent = (currentValue / 10).toFixed(0) + "M+";
+    } else if (originalText.includes("+")) {
+      element.textContent = currentValue + "+";
     } else {
       element.textContent = currentValue;
     }

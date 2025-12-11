@@ -447,9 +447,8 @@ button {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-xl);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4xl);
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -457,6 +456,9 @@ button {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    text-align: center;
+    max-width: 800px;
+    align-items: center;
 }
 
 .hero-greeting {
@@ -486,7 +488,7 @@ button {
 .hero-description {
     font-size: var(--font-size-lg);
     color: var(--color-text-muted);
-    max-width: 500px;
+    max-width: 600px;
     line-height: 1.8;
 }
 
@@ -494,12 +496,14 @@ button {
     display: flex;
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
+    justify-content: center;
 }
 
 .hero-social {
     display: flex;
     gap: var(--spacing-md);
     margin-top: var(--spacing-xl);
+    justify-content: center;
 }
 
 .social-link {
@@ -1292,9 +1296,7 @@ button {
 /* Tablet */
 @media (max-width: 1024px) {
     .hero-container {
-        grid-template-columns: 1fr;
         text-align: center;
-        gap: var(--spacing-3xl);
     }
     
     .hero-content {
@@ -1307,15 +1309,6 @@ button {
     
     .hero-social {
         justify-content: center;
-    }
-    
-    .hero-image {
-        order: -1;
-    }
-    
-    .image-wrapper {
-        width: 280px;
-        height: 280px;
     }
     
     .about-content {
@@ -1390,11 +1383,6 @@ button {
     }
     
     /* Hero Mobile */
-    .image-wrapper {
-        width: 220px;
-        height: 220px;
-    }
-    
     .hero-cta {
         flex-direction: column;
         width: 100%;
