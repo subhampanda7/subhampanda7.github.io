@@ -300,6 +300,8 @@ function animateNumber(element, start, end, duration) {
 
     if (originalText.includes("M")) {
       element.textContent = (currentValue / 10).toFixed(0) + "M+";
+    } else if (originalText.includes("K")) {
+      element.textContent = currentValue + "K+";
     } else if (originalText.includes("%")) {
       element.textContent = currentValue + "%";
     } else if (originalText.includes("+")) {
@@ -336,14 +338,21 @@ const numberObserver = new IntersectionObserver(
         }
 
         if (!isNaN(endValue)) {
-          animateNumber(element, 0, endValue, 2000);
+          // Use shorter duration for smaller numbers
+          let duration = 2000; // default 2 seconds
+          if (endValue <= 10) {
+            duration = 430; // 0.8 seconds for small numbers like 3+
+          } else if (endValue <= 100) {
+            duration = 1200; // 1.2 seconds for medium numbers
+          }
+          animateNumber(element, 0, endValue, duration);
         }
 
         numberObserver.unobserve(element);
       }
     });
   },
-  { threshold: 0.5 }
+  { threshold: 0.3 }
 );
 
 highlightNumbers.forEach((number) => {
