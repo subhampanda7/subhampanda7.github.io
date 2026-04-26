@@ -387,11 +387,23 @@ button {
 .hero {
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
     position: relative;
     padding-top: var(--navbar-height);
     overflow: hidden;
+}
+
+/* Fills viewport under navbar; bottom padding keeps content above fixed scroll hint */
+.hero-center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 0;
+    padding-bottom: clamp(4.5rem, 11vh, 6.5rem);
+    box-sizing: border-box;
 }
 
 .hero-bg {
@@ -492,6 +504,58 @@ button {
     line-height: 1.8;
 }
 
+.hero-recognition {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm) var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border-hover);
+    background: linear-gradient(
+        120deg,
+        rgba(0, 212, 255, 0.1) 0%,
+        rgba(0, 102, 255, 0.08) 100%
+    );
+}
+
+.hero-recognition-badge {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: white;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-gradient);
+}
+
+.hero-recognition-copy {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.hero-recognition-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-accent-primary);
+}
+
+.hero-recognition-link:hover {
+    color: var(--color-accent-secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .hero-cta {
     display: flex;
     gap: var(--spacing-md);
@@ -572,19 +636,29 @@ button {
 /* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
-    bottom: var(--spacing-2xl);
+    bottom: var(--spacing-lg);
     left: 50%;
     transform: translateX(-50%);
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-sm);
     color: var(--color-text-muted);
     font-size: var(--font-size-sm);
-    animation: bounce 2s infinite;
+    pointer-events: none;
+    opacity: 0;
+    animation: scroll-hint-enter 0.65s ease forwards,
+        scroll-hint-bounce 2s ease-in-out 0.75s infinite;
 }
 
-@keyframes bounce {
+@keyframes scroll-hint-enter {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scroll-hint-bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
     40% { transform: translateX(-50%) translateY(-10px); }
     60% { transform: translateX(-50%) translateY(-5px); }
@@ -766,6 +840,73 @@ button {
     background: var(--color-bg-tertiary);
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--radius-full);
+}
+
+.recognition-callout {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-hover);
+    background: linear-gradient(
+        135deg,
+        rgba(0, 212, 255, 0.08) 0%,
+        rgba(0, 102, 255, 0.06) 100%
+    );
+    box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.12);
+}
+
+.recognition-callout-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--color-accent-gradient);
+    color: white;
+}
+
+.recognition-callout-body {
+    flex: 1;
+    min-width: 200px;
+}
+
+.recognition-callout-title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.recognition-callout-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.recognition-callout-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    flex-shrink: 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: white;
+    background: var(--color-accent-gradient);
+    border-radius: var(--radius-md);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
+}
+
+.recognition-callout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.35);
 }
 
 .timeline-achievements {
@@ -1262,6 +1403,8 @@ button {
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
 .delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+.delay-7 { animation-delay: 0.7s; }
 
 @keyframes fadeUp {
     to {
@@ -1412,6 +1555,16 @@ button {
     
     .timeline-date {
         align-self: flex-start;
+    }
+    
+    .recognition-callout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .recognition-callout-btn {
+        width: 100%;
+        justify-content: center;
     }
     
     /* Projects Mobile */
