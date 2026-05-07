@@ -252,6 +252,15 @@ button {
     background: rgba(0, 212, 255, 0.08);
 }
 
+.nav-link.active {
+    color: var(--color-accent-primary);
+    background: rgba(0, 102, 255, 0.08);
+}
+
+[data-theme="dark"] .nav-link.active {
+    background: rgba(0, 212, 255, 0.08);
+}
+
 /* Theme Toggle */
 .theme-toggle {
     display: flex;
@@ -390,7 +399,8 @@ button {
     flex-direction: column;
     align-items: stretch;
     position: relative;
-    padding-top: var(--navbar-height);
+    /* navbar height + small breathing room below header */
+    padding-top: calc(var(--navbar-height) + var(--spacing-lg));
     overflow: hidden;
 }
 
@@ -459,8 +469,9 @@ button {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-xl);
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--spacing-3xl);
     align-items: center;
 }
 
@@ -468,9 +479,8 @@ button {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
-    text-align: center;
-    max-width: 800px;
-    align-items: center;
+    text-align: left;
+    max-width: 680px;
 }
 
 .hero-greeting {
@@ -478,6 +488,41 @@ button {
     font-weight: 500;
     color: var(--color-accent-primary);
     font-family: var(--font-mono);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+/* Open to Work badge */
+.open-to-work {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    font-family: var(--font-primary);
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    padding: 3px 10px 3px 8px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.open-to-work-dot {
+    width: 7px;
+    height: 7px;
+    background: #22c55e;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: blink-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes blink-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
 }
 
 .hero-name {
@@ -497,10 +542,34 @@ button {
     line-height: 1.2;
 }
 
+/* Typewriter tagline */
+.hero-tagline {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-base);
+    color: var(--color-accent-primary);
+    min-height: 1.6em;
+    letter-spacing: 0.01em;
+}
+
+.hero-tagline .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--color-accent-primary);
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blink-cursor 0.8s step-end infinite;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 .hero-description {
     font-size: var(--font-size-lg);
     color: var(--color-text-muted);
-    max-width: 600px;
+    max-width: 560px;
     line-height: 1.8;
 }
 
@@ -508,12 +577,9 @@ button {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: var(--spacing-sm) var(--spacing-md);
-    margin-top: var(--spacing-lg);
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 620px;
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--radius-full);
     border: 1px solid var(--color-border-hover);
@@ -560,14 +626,12 @@ button {
     display: flex;
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
-    justify-content: center;
 }
 
 .hero-social {
     display: flex;
     gap: var(--spacing-md);
     margin-top: var(--spacing-xl);
-    justify-content: center;
 }
 
 .social-link {
@@ -590,7 +654,7 @@ button {
     box-shadow: 0 4px 12px var(--color-shadow-hover);
 }
 
-/* Hero Image */
+/* Hero Profile Image (right column) */
 .hero-image {
     display: flex;
     justify-content: center;
@@ -599,32 +663,35 @@ button {
 
 .image-wrapper {
     position: relative;
-    width: 350px;
-    height: 350px;
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
 }
 
 .image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: var(--radius-xl);
+    border-radius: 50%;
     position: relative;
     z-index: 2;
     box-shadow: 0 20px 60px var(--color-shadow);
+    display: block;
 }
 
 .image-ring {
     position: absolute;
-    inset: -15px;
+    inset: -12px;
     border: 2px solid var(--color-accent-primary);
-    border-radius: var(--radius-xl);
+    border-radius: 50%;
     opacity: 0.5;
     animation: ring-pulse 3s ease-in-out infinite;
+    z-index: 1;
 }
 
 .image-ring.ring-2 {
-    inset: -30px;
-    opacity: 0.3;
+    inset: -24px;
+    opacity: 0.25;
     animation-delay: 0.5s;
 }
 
@@ -1065,11 +1132,13 @@ button {
     border: 1px solid var(--color-border);
 }
 
-/* Projects Grid */
+/* Projects Grid — align-items:start avoids tall cards stretching neighbours,
+   which used to leave a large empty band above the tech row on shorter cards */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xl);
+    align-items: start;
 }
 
 .project-card {
@@ -1107,7 +1176,6 @@ button {
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
     line-height: 1.7;
-    flex-grow: 1;
 }
 
 .project-card-tech {
@@ -1121,6 +1189,25 @@ button {
     font-family: var(--font-mono);
     font-size: var(--font-size-xs);
     color: var(--color-text-muted);
+}
+
+/* Impact badges row on featured project */
+.project-impact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-impact-badge {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
 }
 
 /* ============================================
@@ -1439,11 +1526,21 @@ button {
 /* Tablet */
 @media (max-width: 1024px) {
     .hero-container {
+        grid-template-columns: 1fr;
         text-align: center;
     }
     
     .hero-content {
         align-items: center;
+        max-width: 100%;
+    }
+
+    .hero-greeting {
+        justify-content: center;
+    }
+
+    .hero-image {
+        display: none;
     }
     
     .hero-cta {
@@ -1454,6 +1551,10 @@ button {
         justify-content: center;
     }
     
+    .hero-recognition {
+        justify-content: center;
+    }
+
     .about-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-2xl);
@@ -1570,6 +1671,10 @@ button {
     /* Projects Mobile */
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .project-impact-row {
+        justify-content: flex-start;
     }
     
     /* About Highlights Mobile */

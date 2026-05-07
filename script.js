@@ -194,22 +194,65 @@ window.addEventListener("scroll", () => {
 });
 
 // ============================================
-// TYPING ANIMATION FOR HERO (Optional Enhancement)
+// TYPING ANIMATION FOR HERO — Cycling tagline
 // ============================================
-function typeWriter(element, text, speed = 100) {
-  let i = 0;
-  element.textContent = "";
+(function initTypewriter() {
+  const el = document.getElementById("hero-tagline");
+  if (!el) return;
 
-  function type() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
+  const phrases = [
+    "Java · Spring Boot · Microservices",
+    "Kafka · Temporal.io · Redis",
+    "Distributed Systems · Cloud · AWS",
+    "System Design · SOLID · Clean Code",
+  ];
+
+  let phraseIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+  let timer = null;
+
+  const cursor = document.createElement("span");
+  cursor.className = "cursor";
+  cursor.setAttribute("aria-hidden", "true");
+  el.appendChild(cursor);
+
+  function tick() {
+    const current = phrases[phraseIdx];
+
+    if (!isDeleting) {
+      charIdx++;
+      el.firstChild
+        ? (el.firstChild.textContent = current.slice(0, charIdx))
+        : el.insertBefore(document.createTextNode(current.slice(0, charIdx)), cursor);
+
+      if (charIdx === current.length) {
+        isDeleting = true;
+        timer = setTimeout(tick, 2200);
+        return;
+      }
+    } else {
+      charIdx--;
+      if (el.firstChild && el.firstChild !== cursor) {
+        el.firstChild.textContent = current.slice(0, charIdx);
+      }
+
+      if (charIdx === 0) {
+        isDeleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        timer = setTimeout(tick, 400);
+        return;
+      }
     }
+
+    timer = setTimeout(tick, isDeleting ? 40 : 70);
   }
 
-  type();
-}
+  // Start after hero animations settle
+  const textNode = document.createTextNode("");
+  el.insertBefore(textNode, cursor);
+  setTimeout(tick, 1200);
+}());
 
 // ============================================
 // PARALLAX EFFECT FOR HERO
