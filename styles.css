@@ -671,7 +671,9 @@ button {
 .image-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* Portrait is square PNG with transparent backdrop — contain avoids clipping */
+    object-fit: contain;
+    object-position: center;
     border-radius: 50%;
     position: relative;
     z-index: 2;
