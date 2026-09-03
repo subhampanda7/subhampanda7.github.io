@@ -1,0 +1,435 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* Design tokens                                                       */
+/* ------------------------------------------------------------------ */
+@theme {
+  /* Surfaces — a near-black base keeps the accent glows readable. */
+  --color-ink: #05060a;
+  --color-ink-raised: #090b12;
+  --color-ink-elevated: #0e111a;
+
+  /* Foreground */
+  --color-fg: #edeff5;
+  --color-fg-muted: #9aa1b4;
+  --color-fg-subtle: #6b7285;
+
+  /* Brand accents */
+  --color-brand-iris: #6d7dff;
+  --color-brand-violet: #a855f7;
+  --color-brand-cyan: #22d3ee;
+  --color-brand-mint: #34d399;
+  --color-brand-gold: #f0b429;
+
+  /* Hairlines */
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.16);
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --spacing-header: 5.5rem;
+}
+
+@theme inline {
+  --gradient-brand: linear-gradient(
+    118deg,
+    var(--color-brand-cyan) 0%,
+    var(--color-brand-iris) 46%,
+    var(--color-brand-violet) 100%
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  /* Lenis drives scrolling; native smooth behaviour would fight it. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  section[id] {
+    scroll-margin-top: var(--spacing-header);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-brand-iris) 40%, transparent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-iris);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ink);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border: 3px solid var(--color-ink);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.22);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Utilities                                                           */
+/* ------------------------------------------------------------------ */
+@utility text-gradient {
+  background-image: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.045) 0%,
+    rgba(255, 255, 255, 0.018) 100%
+  );
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--color-line);
+}
+
+/* A 1px gradient stroke drawn with a masked pseudo-element. */
+@utility gradient-ring {
+  position: relative;
+}
+
+@utility numeric {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+@layer components {
+  .gradient-ring::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-brand);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.45s var(--ease-out-expo);
+    pointer-events: none;
+  }
+
+  .gradient-ring:hover::before,
+  .gradient-ring:focus-within::before {
+    opacity: 0.55;
+  }
+
+  /* Cursor-tracked highlight. Coordinates are written as CSS vars by JS. */
+  .spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      340px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(109, 125, 255, 0.13),
+      transparent 62%
+    );
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-out-expo);
+    pointer-events: none;
+  }
+
+  .spotlight:hover::after {
+    opacity: 1;
+  }
+
+    /* Scroll affordance for row scrollers that always start at offset 0. */
+    .fade-edge-r {
+      -webkit-mask-image: linear-gradient(to right, #000 82%, transparent);
+      mask-image: linear-gradient(to right, #000 82%, transparent);
+    }
+
+    .fade-edges-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+  }
+
+  /* Film grain — stops the large blurred gradients from banding. */
+  .noise {
+    opacity: 0.032;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Blueprint grid used behind the hero and section seams. */
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Keyframes                                                           */
+/* ------------------------------------------------------------------ */
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(4%, -6%, 0) scale(1.12);
+  }
+  66% {
+    transform: translate3d(-5%, 4%, 0) scale(0.94);
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Hero entrance runs in CSS, not JS. Motion would render the server HTML at
+   opacity 0 and only animate after hydration, which pushes LCP past 2.5s. */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-char {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.45em, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Transform only, no fade: an element that is transparent on its first paint is
+   permanently disqualified as an LCP candidate, and the portrait is the largest
+   thing on the screen. */
+@keyframes hero-portrait {
+  from {
+    transform: scale(0.955) translate3d(0, 12px, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -9px, 0);
+  }
+}
+
+@keyframes status-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(52, 211, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+
+/* Travelling pulse on architecture-diagram connectors. Distances are fixed
+   pixels so the whole thing stays on the compositor. */
+@keyframes flow-dot-y {
+  0% {
+    transform: translate(-50%, -6px);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 24px);
+    opacity: 0;
+  }
+}
+
+@keyframes flow-dot-x {
+  0% {
+    transform: translate(-6px, -50%);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(32px, -50%);
+    opacity: 0;
+  }
+}
+
+@layer components {
+  .animate-aurora {
+    animation: aurora-drift 26s var(--ease-out-quint) infinite;
+    will-change: transform;
+  }
+
+  .animate-marquee {
+    animation: marquee-x var(--marquee-duration, 44s) linear infinite;
+    will-change: transform;
+  }
+
+  .animate-status {
+    animation: status-pulse 2.4s ease-out infinite;
+  }
+
+  /* `--d` staggers siblings; `both` keeps the resolved state under
+     prefers-reduced-motion, where durations collapse to ~0. */
+  .hero-rise {
+    animation: hero-rise 0.7s var(--ease-out-expo) both;
+    animation-delay: var(--d, 0s);
+  }
+
+  .hero-char {
+    display: inline-block;
+    animation: hero-char 0.75s var(--ease-out-expo) both;
+    animation-delay: var(--d, 0s);
+  }
+
+  .hero-portrait {
+    animation: hero-portrait 1.2s var(--ease-out-expo) both;
+  }
+
+  .animate-float {
+    animation: float-y 6.5s ease-in-out infinite;
+    animation-delay: var(--d, 0s);
+    will-change: transform;
+  }
+
+  .flow-dot {
+    top: 0;
+    left: 50%;
+    animation: flow-dot-y 2.6s linear infinite;
+    animation-delay: var(--flow-delay, 0s);
+  }
+
+  @media (min-width: 64rem) {
+    .flow-dot {
+      top: 50%;
+      left: 0;
+      animation-name: flow-dot-x;
+    }
+
+    /* Compact diagrams stay vertical at every width. */
+    .flow-dot.flow-dot-vertical {
+      top: 0;
+      left: 50%;
+      animation-name: flow-dot-y;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion                                                      */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
