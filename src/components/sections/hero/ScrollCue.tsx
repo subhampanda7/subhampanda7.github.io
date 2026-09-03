@@ -5,7 +5,7 @@ import { scrollToId } from "@/lib/smooth-scroll";
 
 export function ScrollCue() {
   return (
-    <div className="mx-auto mb-6 flex w-full max-w-[78rem] justify-center px-5 sm:px-8 lg:px-12">
+    <div className="mx-auto mb-6 flex w-full max-w-[78rem] justify-center px-5 sm:px-8 lg:px-12 short:mb-3 shorter:hidden">
       <a
         href="#about"
         onClick={(event) => {

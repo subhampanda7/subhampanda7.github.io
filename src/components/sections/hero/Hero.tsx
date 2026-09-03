@@ -46,9 +46,9 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-svh flex-col justify-between overflow-hidden pt-28 sm:pt-32"
+      className="relative flex min-h-svh flex-col justify-between overflow-hidden pt-28 sm:pt-32 short:pt-24 shorter:pt-20"
     >
-      <div className="mx-auto flex w-full max-w-[78rem] flex-1 items-center px-5 py-10 sm:px-8 lg:px-12">
+      <div className="mx-auto flex w-full max-w-[78rem] flex-1 items-center px-5 py-10 sm:px-8 lg:px-12 short:py-4">
         <div className="grid w-full items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
           <div className="order-1 lg:order-2">
             <HeroPortrait />
@@ -71,7 +71,7 @@ export function Hero() {
               </span>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-6 short:mt-4">
               <AnimatedName name={site.name} />
             </div>
 
@@ -96,14 +96,14 @@ export function Hero() {
             </div>
 
             <p
-              className="hero-rise mt-7 max-w-xl text-base leading-relaxed text-fg-muted sm:text-lg"
+              className="hero-rise mt-7 max-w-xl text-base leading-relaxed text-fg-muted sm:text-lg short:mt-5"
               style={at(0.63)}
             >
               {site.intro}
             </p>
 
             <div
-              className="hero-rise mt-9 flex flex-wrap items-center gap-3"
+              className="hero-rise mt-9 flex flex-wrap items-center gap-3 short:mt-6"
               style={at(0.7)}
             >
               <Button href={site.resumeUrl} external size="lg" magnetic>
@@ -117,7 +117,7 @@ export function Hero() {
             </div>
 
             <div
-              className="hero-rise mt-8 flex flex-wrap items-center gap-x-5 gap-y-4"
+              className="hero-rise mt-8 flex flex-wrap items-center gap-x-5 gap-y-4 short:mt-5"
               style={at(0.77)}
             >
               <ul className="flex items-center gap-2">

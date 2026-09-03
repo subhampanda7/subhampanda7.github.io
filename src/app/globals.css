@@ -38,6 +38,12 @@
   --spacing-header: 5.5rem;
 }
 
+/* The hero fills the first screen, so its rhythm has to answer to viewport
+   height, not just width — a laptop at 110% browser zoom is only ~780px tall. */
+@custom-variant short (@media (height <= 880px));
+/* Heavy browser zoom, or a small laptop with lots of chrome open. */
+@custom-variant shorter (@media (height <= 720px));
+
 @theme inline {
   --gradient-brand: linear-gradient(
     118deg,
